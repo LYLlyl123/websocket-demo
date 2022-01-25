@@ -38,7 +38,16 @@ chatNamespace.on("connection", function (socket) {
   console.log("用户" + socket.id + "进入房间");
   socket.on("message", (msg, userID) => {
     console.log("用户" + userID + ":" + msg);
-    socket.broadcast.to("chat").emit("message", msg, userID, new Date());
+    chatNamespace.emit(
+      "message",
+      msg,
+      userID,
+      new Date().getHours() +
+        ":" +
+        new Date().getMinutes() +
+        ":" +
+        new Date().getSeconds()
+    );
   });
   socket.on("disconnect", () => {
     //监听用户断开事件
