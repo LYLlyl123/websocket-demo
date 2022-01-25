@@ -90,7 +90,6 @@ export default function ChatSelectUser() {
   function handelSelect(user) {
     setUser(user);
   }
-  function goRoom() {}
   return (
     <div>
       <div className="containerS">
@@ -113,11 +112,7 @@ export default function ChatSelectUser() {
         </div>
       </div>
       <div className="goRoom">
-        <a onClick={goRoom}>
-          <NavLink to={`/ChatDemo/ChatRoom/${user && user.id}`}>
-            进入房间
-          </NavLink>
-        </a>
+        <NavLink to={`/ChatDemo/ChatRoom/${user && user.id}`}>进入房间</NavLink>
       </div>
     </div>
   );
